@@ -1,0 +1,10 @@
+# Build
+node_modules
+dist
+
+# IDE
+.idea
+
+# Temp
+*~
+.*~
