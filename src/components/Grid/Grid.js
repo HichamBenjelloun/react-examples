@@ -13,6 +13,10 @@ const Grid = ({
         return null;
     }
 
+    if (height <= 0 || width <= 0) {
+        return null;
+    }
+
     if (height * width > 10_000) {
         return (
             <span className="error">
