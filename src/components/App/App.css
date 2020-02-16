@@ -1,0 +1,8 @@
+
+.App {
+    margin: 20px;
+}
+
+.App > span {
+    margin-right: 20px;
+}
