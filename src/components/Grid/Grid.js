@@ -37,12 +37,18 @@ const Grid = ({
 
     const squareNodes =
         [...new Array(height * width)].map(
-            (_, index) =>
-                <Square
-                    key={index}
-                    rowIndex={~~(index / width)}
-                    columnIndex={index % width}
-                />
+            (_, index) => {
+                const rowIndex = ~~(index / width);
+                const columnIndex = index % width;
+
+                return (
+                    <Square
+                        key={`${rowIndex},${columnIndex}`}
+                        rowIndex={rowIndex}
+                        columnIndex={columnIndex}
+                    />
+                )
+            }
         );
 
     const gridStyle = {
