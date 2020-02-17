@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SquareRow from './SquareRow';
+import Square from './Square';
 
 import './Grid.css';
 
@@ -36,17 +36,27 @@ const Grid = ({
     }
 
     const squareNodes =
-        [...new Array(height)].map(
+        [...new Array(height * width)].map(
             (_, index) =>
-                <SquareRow
+                <Square
                     key={index}
-                    index={index}
-                    width={width}
+                    rowIndex={~~(index / width)}
+                    columnIndex={index % width}
                 />
         );
 
+    const gridStyle = {
+        display: 'grid',
+        gridTemplateColumns: `repeat(${width}, 50px)`,
+        gridTemplateRows: `repeat(${height}, 50px)`,
+        gridGap: '5px',
+    };
+
     return (
-        <div className="Grid">
+        <div
+            className="Grid"
+            style={gridStyle}
+        >
             {squareNodes}
         </div>
     );

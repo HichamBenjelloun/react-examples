@@ -2,11 +2,11 @@ import React from 'react';
 
 
 const Square = ({
-                    parentIndex,
-                    index,
+                    rowIndex,
+                    columnIndex,
                 }) => {
     const [backgroundColor, color] =
-        (parentIndex + index) % 2 ?
+        (rowIndex + columnIndex) % 2 ?
             ['white', 'black'] :
             ['grey', 'white'];
 
@@ -20,7 +20,7 @@ const Square = ({
             className="Square br2 grow-large hide-child"
             style={divStyle}
         >
-            <span className="child">{parentIndex}, {index}</span>
+            <span className="child">{rowIndex}, {columnIndex}</span>
         </div>
     );
 };
