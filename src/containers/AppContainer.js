@@ -1,13 +1,15 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 
-import App from "../components/App/App";
+import Grid from "../components/Grid/Grid";
 
+import 'tachyons';
 
 class AppContainer extends Component {
     constructor(props) {
         super(props);
+        this.sizeInput = createRef();
         this.state = {
-            size: '8x8'
+            size: '',
         }
     }
 
@@ -15,16 +17,31 @@ class AppContainer extends Component {
         const {size} = this.state;
 
         return (
-            <App
-                size={size}
-                handleChange={this.handleChange}
-            />
+            <div className="App">
+                <form
+                    onSubmit={this.handleSubmit}
+                >
+                    <label>
+                        <span role="img" aria-label="checkerboard">🏁</span>
+                        <span>Checkerboard size :</span>
+                        <input
+                            type="text"
+                            placeholder="Up to 100x100"
+                            ref={this.sizeInput}
+                        />
+                    </label>
+                    <input type="submit" value="update"/>
+                </form>
+                <Grid size={size}/>
+            </div>
         )
     }
 
-    handleChange = (event) => {
+    handleSubmit = (event) => {
+        event.preventDefault();
+
         this.setState({
-            size: event.target.value
+            size: this.sizeInput.current.value,
         });
     }
 }

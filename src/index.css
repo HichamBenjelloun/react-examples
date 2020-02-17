@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  margin: 20px;
+}
+
+span[role='img'] {
+  margin-right: 10px;
+}
+
+form input {
+  margin: 5px
+}
+
+form input[type='submit'] {
+  cursor: pointer;
+}
