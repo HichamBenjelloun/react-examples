@@ -9,12 +9,22 @@ const Grid = ({
               }) => {
     const [height, width] = size.split('x').map(el => Number(el));
 
-    if (isNaN(height) || isNaN(width)) {
-        return null;
+    if (!Number.isInteger(height) || !Number.isInteger(width)) {
+        return (
+            <span className="error">
+                <span role="img" aria-label="warning">⚠</span>️
+                Try again with positive integers.
+            </span>
+        );
     }
 
     if (height <= 0 || width <= 0) {
-        return null;
+        return (
+            <span className="error">
+                <span role="img" aria-label="warning">⚠</span>️
+                Elements have been painted in another dimension. Try again with positive integers.
+            </span>
+        );
     }
 
     if (height * width > 10_000) {

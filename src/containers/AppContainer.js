@@ -9,7 +9,7 @@ class AppContainer extends Component {
         super(props);
         this.sizeInput = createRef();
         this.state = {
-            size: '',
+            size: '3x3',
         }
     }
 
